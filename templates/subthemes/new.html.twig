@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Subthemes{% endblock %}
+
+{% block body %}
+    <h1>Create new Subthemes</h1>
+
+    {{ include('subthemes/_form.html.twig') }}
+
+    <a href="{{ path('subthemes_index') }}">back to list</a>
+{% endblock %}
