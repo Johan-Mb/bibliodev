@@ -3,11 +3,30 @@
 {% block title %}Edit Themes{% endblock %}
 
 {% block body %}
-    <h1>Edit Themes</h1>
 
-    {{ include('themes/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="contenant">
+        <div class="contenu">
 
-    <a href="{{ path('themes_index') }}">back to list</a>
+			{% include "headpage.html.twig" %}
 
-    {{ include('themes/_delete_form.html.twig') }}
+            <div class="big-buttons">
+                <a href="{{ path('themes_index')}}">
+                    <div class="admin-btn">Thèmes</div>
+                </a>
+                <a href="{{ path('subthemes_index')}}">
+                    <div class="admin-btn">Sous-thèmes</div>
+                </a>
+                <a href="{{ path('ressources_index')}}">
+                    <div class="admin-btn">Ressources</div>
+                </a>
+            </div>
+
+            {{ include('themes/_form.html.twig', {'button_label': 'Update'}) }}
+
+            <a href="{{ path('themes_index') }}">back to list</a>
+
+            {{ include('themes/_delete_form.html.twig') }}
+
+        </div>
+    </div>
 {% endblock %}

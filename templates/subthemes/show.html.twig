@@ -3,28 +3,47 @@
 {% block title %}Subthemes{% endblock %}
 
 {% block body %}
-    <h1>Subthemes</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ subtheme.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ subtheme.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ subtheme.description }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="contenant">
+        <div class="contenu">
 
-    <a href="{{ path('subthemes_index') }}">back to list</a>
+			{% include "headpage.html.twig" %}
 
-    <a href="{{ path('subthemes_edit', {'id': subtheme.id}) }}">edit</a>
+            <div class="big-buttons">
+                <a href="{{ path('themes_index')}}">
+                    <div class="admin-btn">Thèmes</div>
+                </a>
+                <a href="{{ path('subthemes_index')}}">
+                    <div class="admin-btn">Sous-thèmes</div>
+                </a>
+                <a href="{{ path('ressources_index')}}">
+                    <div class="admin-btn">Ressources</div>
+                </a>
+            </div>
 
-    {{ include('subthemes/_delete_form.html.twig') }}
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ subtheme.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ subtheme.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>{{ subtheme.description }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <a href="{{ path('subthemes_index') }}">back to list</a>
+
+            <a href="{{ path('subthemes_edit', {'id': subtheme.id}) }}">edit</a>
+
+            {{ include('subthemes/_delete_form.html.twig') }}
+
+        </div>
+    </div>
 {% endblock %}

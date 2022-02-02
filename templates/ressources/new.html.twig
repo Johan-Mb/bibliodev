@@ -3,9 +3,22 @@
 {% block title %}New Ressources{% endblock %}
 
 {% block body %}
-    <h1>Create new Ressources</h1>
+    <div class="contenant">
+        <div class="contenu">
+
+        			{% include "headpage.html.twig" %}
+
+            <div class="big-buttons">
+                    <div></div>
+                    <div class="admin-btn">Ajouter une ressource</div>
+                    <div></div>
+
+            </div>
 
     {{ include('ressources/_form.html.twig') }}
 
     <a href="{{ path('ressources_index') }}">back to list</a>
+
+        </div>
+    </div>
 {% endblock %}

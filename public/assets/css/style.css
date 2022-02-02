@@ -9,6 +9,30 @@ body {
 h1 {
     text-transform: uppercase;
     font-size:59px;
+    color: #F76C6B;
+}
+
+.admin-btn {
+    background-color: #F76C6B;
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 29px;
+    width: 30vh;
+    color: #F9F9F9;
+}
+
+.admin-btn:hover {
+    background-color: transparent;
+    padding: 7px;
+    border: 8px solid #F76C6B;
+    color: #F76C6B;
+}
+
+.big-buttons a {
+    text-decoration: none;
 }
 
 /* CSS de la sidebar */
@@ -18,7 +42,7 @@ h1 {
     top: 0;
     bottom: 0;
     margin: 20px 0;
-    padding-left: 1.6%;
+    padding-left: 1.8%;
 
     display: flex;
     flex-direction: column;
@@ -56,14 +80,14 @@ nav a {
 nav li:hover {
     background-color: transparent;
     padding: 7px;
-    border: 3px solid white;
-    color: white;
+    border: 3px solid #F9F9F9;
+    color: #F9F9F9;
 }
 
 /* CSS du contenant et contenu */
 
 .contenant {
-    margin-left: 210px;
+    margin-left: 220px;
     background-color: #F9F9F9;
     height: 100vh;
     overflow: hidden;
@@ -100,4 +124,12 @@ nav li:hover {
 .header-contenu-date {
     margin-top:-20px;
     font-size: 16px;
+}
+
+/* CSS des 3 big buttons  */
+
+.big-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

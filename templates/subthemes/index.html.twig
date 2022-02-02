@@ -3,35 +3,54 @@
 {% block title %}Subthemes index{% endblock %}
 
 {% block body %}
-    <h1>Subthemes index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for subtheme in subthemes %}
-            <tr>
-                <td>{{ subtheme.id }}</td>
-                <td>{{ subtheme.name }}</td>
-                <td>{{ subtheme.description }}</td>
-                <td>
-                    <a href="{{ path('subthemes_show', {'id': subtheme.id}) }}">show</a>
-                    <a href="{{ path('subthemes_edit', {'id': subtheme.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+<div class="contenant">
+    <div class="contenu">
 
-    <a href="{{ path('subthemes_new') }}">Create new</a>
+			{% include "headpage.html.twig" %}
+
+            <div class="big-buttons">
+                <a href="{{ path('themes_index')}}">
+                    <div class="admin-btn">Thèmes</div>
+                </a>
+                <a href="{{ path('subthemes_index')}}">
+                    <div class="admin-btn">Sous-thèmes</div>
+                </a>
+                <a href="{{ path('ressources_index')}}">
+                    <div class="admin-btn">Ressources</div>
+                </a>
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for subtheme in subthemes %}
+                    <tr>
+                        <td>{{ subtheme.id }}</td>
+                        <td>{{ subtheme.name }}</td>
+                        <td>{{ subtheme.description }}</td>
+                        <td>
+                            <a href="{{ path('subthemes_show', {'id': subtheme.id}) }}">show</a>
+                            <a href="{{ path('subthemes_edit', {'id': subtheme.id}) }}">edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <a href="{{ path('subthemes_new') }}">Create new</a>
+
+    </div>
+</div>
 {% endblock %}
