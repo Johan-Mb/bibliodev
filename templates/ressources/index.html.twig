@@ -37,5 +37,12 @@
         </tbody>
     </table>
 
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button>Search</button>
+        {{ form_end(form) }}
+
+        <a href="{{ path('ressources_index')}}">Voir tout</a>
+
     <a href="{{ path('ressources_new') }}">Create new</a>
 {% endblock %}

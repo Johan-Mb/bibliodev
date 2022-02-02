@@ -10,15 +10,28 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Form\SearchRessourcesType;
+
 
 #[Route('/ressources')]
 class RessourcesController extends AbstractController
 {
-    #[Route('/', name: 'ressources_index', methods: ['GET'])]
-    public function index(RessourcesRepository $ressourcesRepository): Response
+    #[Route('/', name: 'ressources_index', methods: ['POST','GET'])]
+    public function index(Request $request, RessourcesRepository $ressourcesRepository): Response
     {
+        $form = $this->createForm(SearchRessourcesType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $search = $form->getData()['search'];
+            $ressource = $ressourcesRepository->findLikeName($search);
+        } else {
+            $ressource = $ressourcesRepository->findAll();
+        }
+
         return $this->render('ressources/index.html.twig', [
-            'ressources' => $ressourcesRepository->findAll(),
+            'ressources' => $ressource,
+            'form' => $form->createView(),
         ]);
     }
 
