@@ -2,36 +2,13 @@
 
 {% block body %}
 
-    <h1>Ma bibliodev</h1>
+    <div class="contenant">
+        <div class="contenu">
 
-        <a href="{{ path('app_logout') }}">Déconnexion</a>
-                <div>{{ app.user.username }}</div>
-{% set trans_day_hash = {
-        "Monday": "Lundi",
-        "Tuesday": "Mardi",
-        "Wednesday": "Mercredi",
-        "Thursday": "Jeudi",
-        "Friday": "Vendredi",
-        "Saturday": "Samedi",
-        "Sunday": "Dimanche"
-    } %}
-{% set trans_month_hash = {
-        "January": "janvier",
-        "February": "Février",
-        "March": "Mars",
-        "April": "Avril",
-        "May": "Mai",
-        "June": "Juin",
-        "July": "Juillet",
-        "September": "Septembre",
-        "October": "Octobre",
-        "November": "Novembre",
-        "December": "Décembre",
-    } %}
-    </br>
-{{ trans_day_hash["now"|date('l')] }}
-{{ 'now'|date("d") }}
-{{ trans_month_hash["now"|date('F')] }}
-{{ 'now'|date("Y") }}
+			{% include "headpage.html.twig" %}
+
+
+        </div>
+    </div>
 
 {% endblock %}
