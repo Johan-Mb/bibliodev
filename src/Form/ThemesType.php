@@ -14,7 +14,7 @@ class ThemesType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            ->add('user')
+            // ->add('user')
         ;
     }
 
