@@ -33,7 +33,7 @@ class ThemeFixtures extends Fixture implements DependentFixtureInterface
 
         foreach (self::THEMES as $themeInfos) {
             $theme = new Themes();
-            $theme->setUser($themeInfos[0]);
+            $theme->setUser($this->getReference(UserFixtures::USER_REFERENCE));
             $theme->setName($themeInfos[1]);
             $theme->setDescription($themeInfos[2]);
 
