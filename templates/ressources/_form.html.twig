@@ -3,22 +3,33 @@
     <div class="row">
 
         <div class="col add-theme">
-            {{ form_row(form.theme, {'attr': {'class': 'input-form'}}) }}
+            {{ form_label(form.theme, 'Choisir un thème', {'label_attr': {'class': 'label-form'}}) }}
+            {{ form_row(form.theme, {'attr': {'class': 'select-form'}}) }}
         </div>
+
         <div class="col add-subtheme" hidden>
-            {{ form_row(form.subtheme, {'attr': {'class': 'input-form'}}) }}
+            {{ form_label(form.subtheme, 'Choisir un sous-thème', {'label_attr': {'class': 'label-form'}}) }}
+            {{ form_row(form.subtheme, {'attr': {'class': 'select-form'}}) }}
         </div>
+
         <div class="col">
+            {{ form_label(form.name, 'Nom de la ressource', {'label_attr': {'class': 'label-form'}}) }}
             {{ form_row(form.name, {'attr': {'class': 'input-form'}}) }}
         </div>
+
         <div class="col">
+            {{ form_label(form.level, 'Level de la ressource', {'label_attr': {'class': 'label-form'}}) }}
             {{ form_row(form.level, {'attr': {'class': 'input-form'}}) }}
         </div>
+
         <div class="col">
-            {{ form_row(form.type, {'attr': {'class': 'input-form'}}) }}
+                {{ form_label(form.type, 'Type de ressource', {'label_attr': {'class': 'label-form'}}) }}
+                {{ form_row(form.type, {'attr': {'class': 'select-form'}}) }}
         </div>
+
         <div class="col">
-            {{ form_row(form.url, {'attr': {'class': 'input-form'}}) }}
+                {{ form_label(form.url, 'URL DE LA RESSOURCE', {'label_attr': {'class': 'label-form'}}) }}
+                {{ form_row(form.url, {'attr': {'class': 'input-form'}}) }}
         </div>
 
         <script>
@@ -30,5 +41,5 @@
             });
         </script>
 
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <button class="save-btn">{{ button_label|default('Ajouter à ma Bibliodev') }}</button>
 {{ form_end(form) }}

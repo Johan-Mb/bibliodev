@@ -10,14 +10,14 @@
 
             <div class="big-buttons">
                     <div></div>
-                    <div class="admin-btn">Ajouter une ressource</div>
+                    <div class="admin-btn-static">Ajouter une ressource</div>
                     <div></div>
 
             </div>
 
     {{ include('ressources/_form.html.twig') }}
 
-    <a href="{{ path('ressources_index') }}">back to list</a>
+    <a href="{{ path('ressources_index') }}"><i class="far fa-arrow-alt-circle-left"></i></a>
 
         </div>
     </div>

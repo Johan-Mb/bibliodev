@@ -31,6 +31,39 @@ h1 {
     color: #F76C6B;
 }
 
+.admin-btn-static {
+    background-color: #F76C6B;
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 29px;
+    width: 30vh;
+    color: #F9F9F9;
+}
+
+.save-btn {
+    background-color: #F76C6B;
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    color: #F9F9F9;
+    border: none;
+    width: 33vh;
+    margin-top: 3vh;
+}
+
+.save-btn:hover {
+    background-color: transparent;
+    padding: 9px;
+    border: 6px solid #F76C6B;
+    color: #F76C6B;
+}
+
 .big-buttons a {
     text-decoration: none;
 }
@@ -132,4 +165,65 @@ nav li:hover {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+/* CSS des formulaires  */
+
+.row {
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    margin-top: 5vh;
+}
+
+.col {
+    display: flex;
+    flex-direction:row;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.label-form {
+    padding: 10px;
+    background-color: #F76C6B;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    width: 300px;
+    color: #F9F9F9;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input-form {
+    padding: 10px;
+    border: 3px solid #696969;
+    text-align: center;
+    min-width: 300px;
+    color: #696969;
+}
+
+.select-form {
+    padding: 10px;
+    border: 3px solid #696969;
+    text-align: center;
+    min-width: 325px;
+    color: #696969;
+}
+
+/* CSS des icons */
+
+.far {
+    margin-top:4vh;
+    font-size:40px;
+    color: #F76C6B;
+}
+
+.far:hover{
+    color: #F9F9F9;
+    background-color:#F76C6B;
+    border-radius: 50px;
+
 }

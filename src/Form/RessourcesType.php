@@ -10,6 +10,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class RessourcesType extends AbstractType
@@ -35,6 +36,7 @@ class RessourcesType extends AbstractType
                 'class' => Themes::class,
                 'choice_label' => 'name',
                 'mapped' => false,
+                'label' => ' ',
                 'placeholder' => "Choisir un thème"
             ])
 
@@ -49,19 +51,37 @@ class RessourcesType extends AbstractType
             ->add('subtheme', EntityType::class, [
                 'class' => Subthemes::class,
                 'choice_label' => 'name',
+                'label' => ' ',
                 'placeholder' => "Choisir un sous-thème"
 
             ])
-            ->add('name')
-            ->add('level')
+            ->add('name', TextType::class,
+            array(
+            'attr' => array(
+                'placeholder' => 'Nommer la ressource',
+            ),
+            'label' => ' '))
+            ->add('level', TextType::class,
+                array(
+                'attr' => array(
+                    'placeholder' => 'Estimer une note /10',
+                ),
+                'label' => ' '))
             ->add('type', ChoiceType::class, [
+                'label' => ' ',
+                'placeholder' => "Choisir un type de ressource",
                 'choices' => [
                     'Cours' => 'Cours',
                     'Vidéo' => 'Vidéo',
                     'Lien utile' => 'Lien utile'
                     ]
             ])
-            ->add('url')
+            ->add('url',  TextType::class,
+            array(
+            'attr' => array(
+                'placeholder' => "Renseigner l'URL",
+            ),
+            'label' => ' '))
         ;
     }
 
