@@ -2,7 +2,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Users;
+use App\Entity\User;
 use App\Entity\Themes;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -14,7 +14,7 @@ class ThemeFixtures extends Fixture implements DependentFixtureInterface
 
     public function __construct(EntityManagerInterface $em)
     {
-        $this->user = $em->getRepository(Users::class);
+        $this->user = $em->getRepository(User::class);
     }
 
     public const THEMES = [
@@ -33,7 +33,7 @@ class ThemeFixtures extends Fixture implements DependentFixtureInterface
 
         foreach (self::THEMES as $themeInfos) {
             $theme = new Themes();
-            $theme->setUser($this->users->find(1));
+            $theme->setUser($themeInfos[0]);
             $theme->setName($themeInfos[1]);
             $theme->setDescription($themeInfos[2]);
 

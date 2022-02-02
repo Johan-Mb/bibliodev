@@ -21,11 +21,11 @@ class Themes
     #[ORM\Column(type: 'string', length: 500, nullable: true)]
     private $description;
 
-    #[ORM\ManyToOne(targetEntity: Users::class, inversedBy: 'themes')]
-    private $user;
-
     #[ORM\OneToMany(mappedBy: 'theme', targetEntity: Subthemes::class)]
     private $subthemes;
+
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'themes')]
+    private $user;
 
     public function __construct()
     {
@@ -61,18 +61,6 @@ class Themes
         return $this;
     }
 
-    public function getUser(): ?Users
-    {
-        return $this->user;
-    }
-
-    public function setUser(?Users $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Subthemes[]
      */
@@ -99,6 +87,18 @@ class Themes
                 $subtheme->setTheme(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

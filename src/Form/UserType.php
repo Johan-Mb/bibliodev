@@ -2,28 +2,27 @@
 
 namespace App\Form;
 
-use App\Entity\Ressources;
+use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class RessourcesType extends AbstractType
+class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
-            ->add('level')
-            ->add('type')
-            ->add('subtheme')
-            ->add('url')
+            ->add('email')
+            ->add('roles')
+            ->add('password')
+            ->add('username')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Ressources::class,
+            'data_class' => User::class,
         ]);
     }
 }
