@@ -4,12 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Themes;
 use App\Form\ThemesType;
+use App\Service\Slugify;
 use App\Entity\Subthemes;
 use App\Repository\ThemesRepository;
 use App\Repository\SubthemesRepository;
-use Doctrine\ORM\EntityManagerInterface;
-use App\Service\Slugify;
+use App\Repository\RessourcesRepository;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -102,26 +103,21 @@ class ThemesController extends AbstractController
     }
 
     #[Route('/{currentTheme}/{currentSubtheme}', name: 'show_ressoucesInSubtheme', methods: ['GET'])]
-    #[ParamConverter('theme', options: ['mapping' => ['currentTheme' => 'name']])]
-    #[ParamConverter('subtheme', options: ['mapping' => ['currentSubtheme' => 'name']])]
+    #[ParamConverter('currentTheme', options: ['mapping' => ['currentTheme' => 'name']])]
+    #[ParamConverter('currentSubtheme', options: ['mapping' => ['currentSubtheme' => 'name']])]
     public function showRessourcesInSubtheme (
-        Themes $theme,
-        Subthemes $subtheme,
-        string $currentTheme,
-        string $currentSubtheme,
-        ThemesRepository $themesRepository
+        Themes $currentTheme,
+        Subthemes $currentSubtheme,
+        RessourcesRepository $ressourcesRepository
     ): Response {
-        if (!$subtheme) {
-            throw $this->createNotFoundException(
-                'Aucun sous-thème dans la base de donnée '. $subtheme->getId()
-            );
-            }
+
                 return $this->render('subthemes/theme_subtheme.html.twig', [
-                    'themes' => $theme,
-                    'subthemes' => $subtheme,
                     'currentTheme' => $currentTheme,
                     'currentSubtheme' => $currentSubtheme,
-                    'allThemes' => $themesRepository->findAll(),
+                    'ressourcesVideo' => $ressourcesRepository->findBy(array('type' => 'Vidéo')),
+                    'ressourcesCours' => $ressourcesRepository->findBy(array('type' => 'Cours')),
+                    'ressourcesLiens' => $ressourcesRepository->findBy(array('type' => 'Lien utile')),
+
                 ]);
     }
 

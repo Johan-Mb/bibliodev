@@ -80,10 +80,15 @@ h4 {
     color: #F76C6B;
 }
 
+.ressource-name {
+    font-size: 12px;
+    font-weight: bold;
+}
+
 .ressource-type {
     font-style: italic;
     font-weight: normal;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 /* CSS des colonnes de données */
@@ -111,6 +116,17 @@ h4 {
 
 .row-theme a {
     text-decoration: none;
+}
+
+.case-type-ressource {
+    padding: 10px;
+    background-color: #F2B1B1;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    width: 30.9vh;
+    color: #F9F9F9;
+    margin-bottom: 1vh;
 }
 
 .case-theme {
