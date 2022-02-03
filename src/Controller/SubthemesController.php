@@ -4,25 +4,26 @@ namespace App\Controller;
 
 use App\Entity\Subthemes;
 use App\Form\SubthemesType;
+use App\Repository\ThemesRepository;
 use App\Repository\SubthemesRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[Route('/subthemes')]
 class SubthemesController extends AbstractController
 {
-    #[Route('/', name: 'subthemes_index', methods: ['GET'])]
-    public function index(SubthemesRepository $subthemesRepository): Response
+    #[Route('/subthemes', name: 'subthemes_index', methods: ['GET'])]
+    public function index(SubthemesRepository $subthemesRepository, ThemesRepository $themesRepository): Response
     {
         return $this->render('subthemes/index.html.twig', [
             'subthemes' => $subthemesRepository->findAll(),
+            'themes' => $themesRepository->findAll(),
         ]);
     }
 
-    #[Route('/new', name: 'subthemes_new', methods: ['GET', 'POST'])]
+    #[Route('/subthemes/new', name: 'subthemes_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $subtheme = new Subthemes();
@@ -42,7 +43,7 @@ class SubthemesController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'subthemes_show', methods: ['GET'])]
+    #[Route('/subthemes/{id}', name: 'subthemes_show', methods: ['GET'])]
     public function show(Subthemes $subtheme): Response
     {
         return $this->render('subthemes/show.html.twig', [
@@ -50,7 +51,7 @@ class SubthemesController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'subthemes_edit', methods: ['GET', 'POST'])]
+    #[Route('/subthemes/{id}/edit', name: 'subthemes_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Subthemes $subtheme, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(SubthemesType::class, $subtheme);
@@ -68,7 +69,7 @@ class SubthemesController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'subthemes_delete', methods: ['POST'])]
+    #[Route('/subthemes/{id}', name: 'subthemes_delete', methods: ['POST'])]
     public function delete(Request $request, Subthemes $subtheme, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$subtheme->getId(), $request->request->get('_token'))) {

@@ -24,43 +24,34 @@
                     <div class="admin-btn">Sous-thèmes</div>
                 </a>
                 <a href="{{ path('ressources_index')}}">
-                    <div class="admin-btn">Ressources</div>
+                    <div class="admin-btn-white">Ressources</div>
                 </a>
             </div>
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Level</th>
-                        <th>Type</th>
-                        <th>URL</th>
-                        <th>actions</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <div class="grid-theme">
+                <div class="col-theme">
                 {% for ressource in ressources %}
-                    <tr>
-                        <td>{{ ressource.id }}</td>
-                        <td>{{ ressource.name }}</td>
-                        <td>{{ ressource.level }}</td>
-                        <td>{{ ressource.type }}</td>
-                        <td><a href="{{ ressource.url }}" target="_blank">Go</a></td>
-                        <td>
-                            <a href="{{ path('ressources_show', {'id': ressource.id}) }}">show</a>
-                            <a href="{{ path('ressources_edit', {'id': ressource.id}) }}">edit</a>
-                        </td>
-                    </tr>
+                        <div class="row-theme">
+                            <a href="{{ ressource.url }}" target="_blank">
+                                <div class="case-theme">
+                                    {{ ressource.name }} <br/>
+                                    <span class="ressource-type"> {{ ressource.type }} / Level {{ ressource.level }}</span>
+                                </div>
+                            </a>
+                                <a href="{{ path('ressources_show', {'id': ressource.id}) }}">
+                                    <div class="case-icon"><i class="far fa-eye"></i></div>
+                                </a>
+                                <a href="{{ path('ressources_edit', {'id': ressource.id}) }}">
+                                    <div class="case-icon"><i class="far fa-edit"></i></div>
+                                </a>
+                        </div>
                 {% else %}
-                    <tr>
-                        <td colspan="5">no records found</td>
-                    </tr>
+                    <div>no records found</div>
                 {% endfor %}
-                </tbody>
-            </table>
+                </div>
+            </div>
 
-            <a href="{{ path('ressources_new') }}">Create new</a>
+            <a class="save-btn" href="{{ path('ressources_new') }}">Ajouter une ressource</a>
 
     </div>
 </div>

@@ -11,7 +11,7 @@
 
             <div class="big-buttons">
                 <a href="{{ path('themes_index')}}">
-                    <div class="admin-btn">Thèmes</div>
+                    <div class="admin-btn-white">{{ theme.name }}</div>
                 </a>
                 <a href="{{ path('subthemes_index')}}">
                     <div class="admin-btn">Sous-thèmes</div>
@@ -21,11 +21,11 @@
                 </a>
             </div>
 
-            {{ include('themes/_form.html.twig', {'button_label': 'Update'}) }}
-
-            <a href="{{ path('themes_index') }}">back to list</a>
+            {{ include('themes/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
             {{ include('themes/_delete_form.html.twig') }}
+
+            <a href="{{ path('themes_index') }}"><i class="far fa-arrow-alt-circle-left"></i></a>
 
         </div>
     </div>

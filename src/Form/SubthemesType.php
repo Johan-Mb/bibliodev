@@ -8,6 +8,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class SubthemesType extends AbstractType
 {
@@ -16,10 +17,21 @@ class SubthemesType extends AbstractType
         $builder
             ->add('theme', EntityType::class, [
                 'class' => Themes::class,
-                'choice_label' => 'name'
+                'choice_label' => 'name',
+                'label' => ' '
             ])
-            ->add('name')
-            ->add('description')
+            ->add('name', TextType::class,
+            array(
+            'attr' => array(
+                'placeholder' => 'Nommer le sous-thème',
+            ),
+            'label' => ' '))
+            ->add('description', TextType::class,
+            array(
+            'attr' => array(
+                'placeholder' => 'Décrire le sous-thème',
+            ),
+            'label' => ' '))
         ;
     }
 

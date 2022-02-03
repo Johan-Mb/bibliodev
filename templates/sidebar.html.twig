@@ -13,7 +13,9 @@
                     <a href="{{ path('subthemes_index')}}"><li>Sous-thèmes</li></a>
                     <a href="{{ path('ressources_index')}}"><li>Ressources</li></a>
                     <a href="{{ path('ressources_new')}}"><li>Ajouter</li></a>
+                {% if app.user %}
                     <a href="{{ path('user_show', {id: app.user.id}) }}"><li>Profil</li></a>
+                {% endif %}
                     <a href="{{ path('app_logout') }}"><li>Déconnexion</li></a>
                 </ul>
             </nav>

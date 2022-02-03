@@ -12,6 +12,18 @@ h1 {
     color: #F76C6B;
 }
 
+.admin-btn-white {
+    background-color: transparent;
+    padding: 7px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 29px;
+    width: 30vh;
+    border: 8px solid #F76C6B;
+    color: #F76C6B;}
+
 .admin-btn {
     background-color: #F76C6B;
     padding: 15px;
@@ -61,6 +73,66 @@ h1 {
     background-color: transparent;
     padding: 9px;
     border: 6px solid #F76C6B;
+    color: #F76C6B;
+}
+
+.ressource-type {
+    font-style: italic;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+/* CSS des colonnes de données */
+
+.grid-theme {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 3vh;
+}
+
+.col-theme {
+    display:flex;
+    flex-direction: column;
+    margin-top: 5vh;
+}
+
+.row-theme{
+    display:flex;
+    flex-direction: row;
+    gap: 1vh;
+    width: 33vh;
+    margin-bottom: 1vh;
+}
+
+.row-theme a {
+    text-decoration: none;
+}
+
+.case-theme {
+    padding: 10px;
+    background-color: #F76C6B;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    width: 19vh;
+    color: #F9F9F9;
+}
+
+.case-icon {
+    padding: 10px;
+    background-color: #F76C6B;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    width: 3vh;
+    color: #F9F9F9;
+}
+
+.case-icon:hover, .case-theme:hover {
+    padding: 7px;
+    background-color: transparent;
+    border: 3px solid #F76C6B;
     color: #F76C6B;
 }
 
@@ -205,6 +277,10 @@ nav li:hover {
     color: #696969;
 }
 
+.input-form a {
+    color: #696969;
+}
+
 .select-form {
     padding: 10px;
     border: 3px solid #696969;
@@ -215,15 +291,15 @@ nav li:hover {
 
 /* CSS des icons */
 
-.far {
+.fa-arrow-alt-circle-left {
     margin-top:4vh;
     font-size:40px;
     color: #F76C6B;
 }
 
-.far:hover{
+
+.fa-arrow-alt-circle-left:hover{
     color: #F9F9F9;
     background-color:#F76C6B;
     border-radius: 50px;
-
 }

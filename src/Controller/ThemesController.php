@@ -4,12 +4,18 @@ namespace App\Controller;
 
 use App\Entity\Themes;
 use App\Form\ThemesType;
+use App\Entity\Subthemes;
 use App\Repository\ThemesRepository;
+use App\Repository\SubthemesRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Service\Slugify;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+
 
 #[Route('/themes')]
 class ThemesController extends AbstractController
@@ -78,4 +84,21 @@ class ThemesController extends AbstractController
 
         return $this->redirectToRoute('themes_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    #[Route('/{theme}/{subtheme}', name: 'showThemeSubtheme', methods: ['GET'])]
+    #[ParamConverter('theme', options: ['mapping' => ['theme' => 'name']])]
+    #[ParamConverter('subtheme', options: ['mapping' => ['subtheme' => 'name']])]
+    public function showThemeSubtheme (Themes $theme, Subthemes $subtheme): Response
+    {
+        if (!$subtheme) {
+            throw $this->createNotFoundException(
+                'Aucun sous-thème dans la base de donnée '. $subtheme->getId()
+            );
+            }
+                return $this->render('subthemes/theme_subtheme.html.twig', [
+                    'themes' => $theme,
+                    'subthemes' => $subtheme,
+                ]);
+    }
+
 }

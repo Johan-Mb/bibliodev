@@ -10,44 +10,38 @@
 			{% include "headpage.html.twig" %}
 
             <div class="big-buttons">
-                <a href="{{ path('themes_index')}}">
-                    <div class="admin-btn">Thèmes</div>
-                </a>
-                <a href="{{ path('subthemes_index')}}">
-                    <div class="admin-btn">Sous-thèmes</div>
-                </a>
-                <a href="{{ path('ressources_index')}}">
-                    <div class="admin-btn">Ressources</div>
-                </a>
+                    <div></div>
+                    <div class="admin-btn-static">{{ ressource.name }}</div>
+                    <div></div>
             </div>
 
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <th>Id</th>
-                        <td>{{ ressource.id }}</td>
-                    </tr>
-                    <tr>
-                        <th>Name</th>
-                        <td>{{ ressource.name }}</td>
-                    </tr>
-                    <tr>
-                        <th>Level</th>
-                        <td>{{ ressource.level }}</td>
-                    </tr>
-                    <tr>
-                        <th>Type</th>
-                        <td>{{ ressource.type }}</td>
-                    </tr>
-                </tbody>
-            </table>
+                <div class="col-theme">
+                    <div class="row">
+                        <div class="col add-theme">
+                            <div class="label-form">Nom</div>
+                            <div class="input-form">{{ ressource.name }}</div>
+                        </div>
+                        <div class="col">
+                            <div class="label-form">Level</div>
+                            <div class="input-form">{{ ressource.level }}</div>
+                        </div>
+                        <div class="col">
+                            <div class="label-form">Type</div>
+                            <div class="input-form">{{ ressource.type }}</div>
+                        </div>
+                        <div class="col">
+                            <div class="label-form">URL</div>
+                            <div class="input-form"><a href="{{ ressource.url }}" target="_blank">{{ ressource.url }} </a></div>
+                        </div>
 
-            <a href="{{ path('ressources_index') }}">back to list</a>
+                            <a class="save-btn" href="{{ path('ressources_edit', {'id': ressource.id}) }}">Modifier</a>
 
-            <a href="{{ path('ressources_edit', {'id': ressource.id}) }}">edit</a>
+                            {{ include('ressources/_delete_form.html.twig') }}
 
-            {{ include('ressources/_delete_form.html.twig') }}
+                            <a href="{{ path('ressources_index') }}"><i class="far fa-arrow-alt-circle-left"></i></a>
 
+                    </div>
+                </div>
         </div>
     </div>
 {% endblock %}

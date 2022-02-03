@@ -11,7 +11,7 @@
 
             <div class="big-buttons">
                 <a href="{{ path('themes_index')}}">
-                    <div class="admin-btn">Thèmes</div>
+                    <div class="admin-btn-white">{{ theme.name }}</div>
                 </a>
                 <a href="{{ path('subthemes_index')}}">
                     <div class="admin-btn">Sous-thèmes</div>
@@ -21,29 +21,25 @@
                 </a>
             </div>
 
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <th>Id</th>
-                        <td>{{ theme.id }}</td>
-                    </tr>
-                    <tr>
-                        <th>Name</th>
-                        <td>{{ theme.name }}</td>
-                    </tr>
-                    <tr>
-                        <th>Description</th>
-                        <td>{{ theme.description }}</td>
-                    </tr>
-                </tbody>
-            </table>
+             <div class="col-theme">
+                    <div class="row">
+                        <div class="col add-theme">
+                            <div class="label-form">Nom</div>
+                            <div class="input-form">{{ theme.name }}</div>
+                        </div>
+                        <div class="col">
+                            <div class="label-form">Description</div>
+                            <div class="input-form">{{ theme.description }}</div>
+                        </div>
 
-            <a href="{{ path('themes_index') }}">back to list</a>
+                            <a class="save-btn" href="{{ path('themes_edit', {'id': theme.id}) }}">Modifier</a>
 
-            <a href="{{ path('themes_edit', {'id': theme.id}) }}">edit</a>
+                            {{ include('themes/_delete_form.html.twig') }}
 
-            {{ include('themes/_delete_form.html.twig') }}
+                            <a href="{{ path('themes_index') }}"><i class="far fa-arrow-alt-circle-left"></i></a>
 
+                    </div>
+                </div>
         </div>
     </div>
 {% endblock %}

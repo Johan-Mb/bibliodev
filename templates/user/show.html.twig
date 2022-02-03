@@ -9,47 +9,36 @@
 			{% include "headpage.html.twig" %}
 
             <div class="big-buttons">
-                <a href="{{ path('themes_index')}}">
-                    <div class="admin-btn">Thèmes</div>
-                </a>
-                <a href="{{ path('subthemes_index')}}">
-                    <div class="admin-btn">Sous-thèmes</div>
-                </a>
-                <a href="{{ path('ressources_index')}}">
-                    <div class="admin-btn">Ressources</div>
-                </a>
+                    <div></div>
+                    <div class="admin-btn-static">{{ user.username }}</div>
+                    <div></div>
             </div>
 
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <th>Id</th>
-                        <td>{{ user.id }}</td>
-                    </tr>
-                    <tr>
-                        <th>Email</th>
-                        <td>{{ user.email }}</td>
-                    </tr>
-                    <tr>
-                        <th>Roles</th>
-                        <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                    </tr>
-                    <tr>
-                        <th>Password</th>
-                        <td>{{ user.password }}</td>
-                    </tr>
-                    <tr>
-                        <th>Username</th>
-                        <td>{{ user.username }}</td>
-                    </tr>
-                </tbody>
-            </table>
+                <div class="col-theme">
+                    <div class="row">
+                        <div class="col add-theme">
+                            <div class="label-form">Nom</div>
+                            <div class="input-form">{{ user.username }}</div>
+                        </div>
 
-            <a href="{{ path('user_index') }}">back to list</a>
+                        <div class="col">
+                            <div class="label-form">E-mail</div>
+                            <div class="input-form">{{ user.email }}</div>
+                        </div>
 
-            <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                        <div class="col">
+                            <div class="label-form">Mot de passe</div>
+                            <div class="input-form">{{ user.password }}</div>
+                        </div>
 
-            {{ include('user/_delete_form.html.twig') }}
+                            <a class="save-btn" href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
+
+                            {{ include('user/_delete_form.html.twig') }}
+
+                            <a href="{{ path('user_index') }}"><i class="far fa-arrow-alt-circle-left"></i></a>
+
+                    </div>
+                </div>
         </div>
     </div>
 {% endblock %}

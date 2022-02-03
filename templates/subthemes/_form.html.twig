@@ -1,4 +1,16 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+      <div class="row">
+        <div class="col add-theme">
+            {{ form_label(form.theme, 'Choisir un thème', {'label_attr': {'class': 'label-form'}}) }}
+            {{ form_row(form.theme, {'attr': {'class': 'select-form'}}) }}
+        </div>
+        <div class="col">
+            {{ form_label(form.name, 'Nom du sous-thème', {'label_attr': {'class': 'label-form'}}) }}
+            {{ form_row(form.name, {'attr': {'class': 'input-form'}}) }}
+        </div>
+        <div class="col">
+            {{ form_label(form.description, 'Description du sous-thème (facultatif)', {'label_attr': {'class': 'label-form'}}) }}
+            {{ form_row(form.description, {'attr': {'class': 'input-form'}}) }}
+        </div>
+    <button class="save-btn">{{ button_label|default('Ajouter à ma Bibliodev') }}</button>
 {{ form_end(form) }}

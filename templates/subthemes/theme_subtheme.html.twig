@@ -14,7 +14,7 @@
                     <div class="admin-btn">Thèmes</div>
                 </a>
                 <a href="{{ path('subthemes_index')}}">
-                    <div class="admin-btn-white">Sous-thèmes</div>
+                    <div class="admin-btn">Sous-thèmes</div>
                 </a>
                 <a href="{{ path('ressources_index')}}">
                     <div class="admin-btn">Ressources</div>
@@ -22,6 +22,28 @@
             </div>
 
             <div class="grid-theme">
+                <div class="col-theme">
+                    {% for theme in themes %}
+                        <div class="row-theme">
+                                {# <a href="{{ path('showThemeSubtheme', {'name': theme.name, 'subtheme_name': subtheme.name }) }}"> #}
+                                    <div class="case-theme">
+                                        {{ theme.name }}
+                                    </div>
+                                {# </a> #}
+
+                                <a href="{{ path('themes_show', {'id': theme.id}) }}">
+                                    <div class="case-icon">
+                                        <i class="far fa-eye"></i>
+                                    </div>
+                                </a>
+                                <a href="{{ path('themes_edit', {'id': theme.id}) }}">
+                                    <div class="case-icon">
+                                        <i class="far fa-edit"></i>
+                                    </div>
+                                </a>
+                        </div>
+                    {% endfor %}
+                </div>
 
                 <div class="col-theme">
                     {% for subtheme in subthemes %}
@@ -37,7 +59,7 @@
                                         <i class="far fa-eye"></i>
                                     </div>
                                 </a>
-                                <a href="{{ path('subthemes_edit', {'id': subtheme.id}) }}">
+                                <a href="{{ path('themes_edit', {'id': subtheme.id}) }}">
                                     <div class="case-icon">
                                         <i class="far fa-edit"></i>
                                     </div>

@@ -11,7 +11,7 @@
 
               <div class="big-buttons">
                 <a href="{{ path('themes_index')}}">
-                    <div class="admin-btn">Thèmes</div>
+                    <div class="admin-btn-white">Thèmes</div>
                 </a>
                 <a href="{{ path('subthemes_index')}}">
                     <div class="admin-btn">Sous-thèmes</div>
@@ -20,36 +20,27 @@
                     <div class="admin-btn">Ressources</div>
                 </a>
             </div>
-
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <div class="grid-theme">
+                <div class="col-theme">
                     {% for theme in themes %}
-                        <tr>
-                            <td>{{ theme.id }}</td>
-                            <td>{{ theme.name }}</td>
-                            <td>{{ theme.description }}</td>
-                            <td>
-                                <a href="{{ path('themes_show', {'id': theme.id}) }}">show</a>
-                                <a href="{{ path('themes_edit', {'id': theme.id}) }}">edit</a>
-                            </td>
-                        </tr>
-                    {% else %}
-                        <tr>
-                            <td colspan="4">no records found</td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                        <div class="row-theme">
+                                <a href="{{ path('showThemeSubtheme', {'theme': theme.name|lower, 'subtheme': theme.subthemes.0.name|lower }) }}">
+                                    <div class="case-theme">{{ theme.name }}</div>
+                                </a>
+                                <a href="{{ path('themes_show', {'id': theme.id}) }}">
+                                    <div class="case-icon"><i class="far fa-eye"></i></div>
+                                </a>
+                                <a href="{{ path('themes_edit', {'id': theme.id}) }}">
+                                    <div class="case-icon"><i class="far fa-edit"></i></div>
+                                </a>
+                        </div>
 
-                <a href="{{ path('themes_new') }}">Create new</a>
+                    {% else %}
+                            <div>no records found</div>
+                    {% endfor %}
+                </div>
+            </div>
+                <a class="save-btn" href="{{ path('themes_new') }}">Créer un thème</a>
         </div>
     </div>
 {% endblock %}

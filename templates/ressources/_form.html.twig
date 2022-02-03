@@ -7,7 +7,7 @@
             {{ form_row(form.theme, {'attr': {'class': 'select-form'}}) }}
         </div>
 
-        <div class="col add-subtheme" hidden>
+        <div class="col add-subtheme">
             {{ form_label(form.subtheme, 'Choisir un sous-thème', {'label_attr': {'class': 'label-form'}}) }}
             {{ form_row(form.subtheme, {'attr': {'class': 'select-form'}}) }}
         </div>
@@ -32,14 +32,14 @@
                 {{ form_row(form.url, {'attr': {'class': 'input-form'}}) }}
         </div>
 
-        <script>
+        {# <script>
             const theme = document.querySelector('.add-theme');
             const subtheme = document.querySelector('.add-subtheme');
 
             theme.addEventListener('change', (e) => {
                 subtheme.style.display = 'block';
             });
-        </script>
+        </script> #}
 
     <button class="save-btn">{{ button_label|default('Ajouter à ma Bibliodev') }}</button>
 {{ form_end(form) }}
