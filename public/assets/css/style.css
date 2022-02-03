@@ -12,6 +12,10 @@ h1 {
     color: #F76C6B;
 }
 
+h4 {
+    color: #F76C6B;
+}
+
 .admin-btn-white {
     background-color: transparent;
     padding: 7px;
@@ -119,6 +123,16 @@ h1 {
     color: #F9F9F9;
 }
 
+.case-theme-pink {
+    padding: 10px;
+    background-color: #F2B1B1;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    width: 19vh;
+    color: #F9F9F9;
+}
+
 .case-icon {
     padding: 10px;
     background-color: #F76C6B;
@@ -134,6 +148,23 @@ h1 {
     background-color: transparent;
     border: 3px solid #F76C6B;
     color: #F76C6B;
+}
+
+.case-icon-pink {
+    padding: 10px;
+    background-color: #F2B1B1;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    width: 3vh;
+    color: #F9F9F9;
+}
+
+.case-theme-pink:hover, .case-icon-pink:hover {
+    padding: 7px;
+    background-color: transparent;
+    border: 3px solid #F2B1B1;
+    color: #F2B1B1;
 }
 
 .big-buttons a {

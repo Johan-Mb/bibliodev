@@ -10,22 +10,22 @@
 			{% include "headpage.html.twig" %}
 
             <div class="big-buttons">
-                    <div class="admin-btn">{{ currentTheme }}</div>
-                    <div class="admin-btn"> {{ currentSubtheme }}</div>
+                    <div class="admin-btn-white">{{ currentTheme.name }}</div>
+                    <div class="admin-btn-static"> Sous-thèmes </div>
                 <a href="{{ path('ressources_index')}}">
-                    <div class="admin-btn-white">Ressources</div>
+                    <div class="admin-btn-static">Ressources</div>
                 </a>
             </div>
 
-    {# Afficher les thèmes du currentTheme #}
-            {# <div class="grid-theme">
+            <div class="grid-theme">
                 <div class="col-theme">
                     {% for theme in allThemes %}
                         <div class="row-theme">
+                                <a href="{{ path('show_currentTheme', {'currentTheme': theme.name|lower }) }}">
                                     <div class="case-theme">
                                         {{ theme.name }}
                                     </div>
-
+                                </a>
                                 <a href="{{ path('themes_show', {'id': theme.id}) }}">
                                     <div class="case-icon">
                                         <i class="far fa-eye"></i>
@@ -38,24 +38,23 @@
                                 </a>
                         </div>
                     {% endfor %}
-                </div> #}
+                </div>
 
                 <div class="col-theme">
-                    {% for subtheme in subthemes %}
+                    {% for subtheme in currentTheme.subthemes %}
                         <div class="row-theme">
-                                {# <a href="{{ path('showThemeSubtheme', {'name': theme.name, 'subtheme_name': subtheme.name }) }}"> #}
-                                    <div class="case-theme">
+                                <a href="{{ path('show_ressoucesInSubtheme', {'currentTheme': currentTheme.name|lower, 'currentSubtheme': currentTheme.subthemes.0.name|lower }) }}">
+                                    <div class="case-theme-pink">
                                         {{ subtheme.name }}
                                     </div>
-                                {# </a> #}
-
+                                </a>
                                 <a href="{{ path('subthemes_show', {'id': subtheme.id}) }}">
-                                    <div class="case-icon">
+                                    <div class="case-icon-pink">
                                         <i class="far fa-eye"></i>
                                     </div>
                                 </a>
                                 <a href="{{ path('themes_edit', {'id': subtheme.id}) }}">
-                                    <div class="case-icon">
+                                    <div class="case-icon-pink">
                                         <i class="far fa-edit"></i>
                                     </div>
                                 </a>

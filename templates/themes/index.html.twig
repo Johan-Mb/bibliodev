@@ -22,9 +22,10 @@
             </div>
             <div class="grid-theme">
                 <div class="col-theme">
+                <h4>Choisir un thème :</h4>
                     {% for theme in themes %}
                         <div class="row-theme">
-                                <a href="{{ path('showThemeSubtheme', {'theme': theme.name|lower, 'subtheme': theme.subthemes.0.name|lower }) }}">
+                                <a href="{{ path('show_currentTheme', {'currentTheme': theme.name|lower }) }}">
                                     <div class="case-theme">{{ theme.name }}</div>
                                 </a>
                                 <a href="{{ path('themes_show', {'id': theme.id}) }}">

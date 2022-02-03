@@ -48,7 +48,7 @@ class ThemesController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'themes_show', methods: ['GET'])]
+    #[Route('/show/{id}', name: 'themes_show', methods: ['GET'])]
     public function show(Themes $theme): Response
     {
         return $this->render('themes/show.html.twig', [
@@ -85,11 +85,32 @@ class ThemesController extends AbstractController
         return $this->redirectToRoute('themes_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    #[Route('/{theme}/{subtheme}', name: 'showThemeSubtheme', methods: ['GET'])]
-    #[ParamConverter('theme', options: ['mapping' => ['theme' => 'name']])]
-    #[ParamConverter('subtheme', options: ['mapping' => ['subtheme' => 'name']])]
-    public function showThemeSubtheme (Themes $theme, Subthemes $subtheme): Response
-    {
+
+    // Renvoie tous les thèmes et le nom du thème choisi
+
+    #[Route('/{currentTheme}', name: 'show_currentTheme', methods: ['GET'])]
+    #[ParamConverter('currentTheme', options: ['mapping' => ['currentTheme' => 'name']])]
+    public function showCurrentTheme(
+        Themes $currentTheme,
+        ThemesRepository $themesRepository,
+    ): Response {
+
+        return $this->render('subthemes/theme.html.twig', [
+            'currentTheme' => $currentTheme,
+            'allThemes' => $themesRepository->findAll(),
+        ]);
+    }
+
+    #[Route('/{currentTheme}/{currentSubtheme}', name: 'show_ressoucesInSubtheme', methods: ['GET'])]
+    #[ParamConverter('theme', options: ['mapping' => ['currentTheme' => 'name']])]
+    #[ParamConverter('subtheme', options: ['mapping' => ['currentSubtheme' => 'name']])]
+    public function showRessourcesInSubtheme (
+        Themes $theme,
+        Subthemes $subtheme,
+        string $currentTheme,
+        string $currentSubtheme,
+        ThemesRepository $themesRepository
+    ): Response {
         if (!$subtheme) {
             throw $this->createNotFoundException(
                 'Aucun sous-thème dans la base de donnée '. $subtheme->getId()
@@ -98,6 +119,9 @@ class ThemesController extends AbstractController
                 return $this->render('subthemes/theme_subtheme.html.twig', [
                     'themes' => $theme,
                     'subthemes' => $subtheme,
+                    'currentTheme' => $currentTheme,
+                    'currentSubtheme' => $currentSubtheme,
+                    'allThemes' => $themesRepository->findAll(),
                 ]);
     }
 

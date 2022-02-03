@@ -1,4 +1,18 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="row">
+
+        <div class="col add-theme">
+            {{ form_label(form.email, 'Modifier votre e-mail', {'label_attr': {'class': 'label-form'}}) }}
+            {{ form_row(form.email, {'attr': {'class': 'input-form'}}) }}
+        </div>
+        <div class="col">
+            {{ form_label(form.username, 'Modifier votre prénom et nom', {'label_attr': {'class': 'label-form'}}) }}
+            {{ form_row(form.username, {'attr': {'class': 'input-form'}}) }}
+        </div>
+        <div class="col">
+            {{ form_label(form.password, 'Modifier votre mot de passe', {'label_attr': {'class': 'label-form'}}) }}
+            {{ form_row(form.password, {'attr': {'class': 'input-form'}}) }}
+        </div>
+
+            <button class="save-btn">{{ button_label|default('Ajouter') }}</button>
 {{ form_end(form) }}
