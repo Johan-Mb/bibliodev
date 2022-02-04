@@ -19,7 +19,9 @@
 
             <div class="grid-theme">
                 <div class="col-theme">
-                    <h4>Thème choisi : {{ currentTheme.name }}</h4>
+                    <div class="case-type-ressource">
+                        <span> Thème choisi : {{ currentTheme.name }} </span>
+                    </div>
                     {% for theme in allThemes %}
                         <div class="row-theme">
                                 <a href="{{ path('show_currentTheme', {'currentTheme': theme.name|lower }) }}">
@@ -42,8 +44,9 @@
                 </div>
 
                 <div class="col-theme">
-                    <h4>Choisir un sous-thème :</h4>
-                    {% for subtheme in currentTheme.subthemes %}
+                    <div class="case-type-ressource">
+                        <span> Choisir un sous-thème : </span>
+                    </div>                    {% for subtheme in currentTheme.subthemes %}
                         <div class="row-theme">
                                 <a href="{{ path('show_ressoucesInSubtheme', {'currentTheme': currentTheme.name|lower, 'currentSubtheme': currentTheme.subthemes.0.name|lower }) }}">
                                     <div class="case-theme-pink">

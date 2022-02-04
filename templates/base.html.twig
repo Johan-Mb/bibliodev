@@ -18,8 +18,10 @@
 			{% include "sidebar.html.twig" %}
     {% endblock %}
     <body>
+    {% if app.user is defined %}
         {% block body %}
 
         {% endblock %}
+    {% endif %}
     </body>
 </html>

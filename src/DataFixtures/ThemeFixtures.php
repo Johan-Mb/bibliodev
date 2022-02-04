@@ -17,16 +17,13 @@ class ThemeFixtures extends Fixture implements DependentFixtureInterface
         $this->user = $em->getRepository(User::class);
     }
 
+    public const THEMES_REFERENCE = 'theme-fixture';
+
     public const THEMES = [
         ['1', 'PHP', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel fringilla mi, vel laoreet quam.'],
         ['1', 'JavaScript', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel fringilla mi, vel laoreet quam.'],
         ['1', 'Symfony', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel fringilla mi, vel laoreet quam.'],
         ['1', 'React', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel fringilla mi, vel laoreet quam.'],
-        ['1', 'UX / UI', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel fringilla mi, vel laoreet quam.'],
-        ['1', 'API', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel fringilla mi, vel laoreet quam.'],
-        ['1', 'mySQL', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel fringilla mi, vel laoreet quam.'],
-        ['1', 'CSS', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel fringilla mi, vel laoreet quam.'],
-        ['1', 'Outils', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel fringilla mi, vel laoreet quam.'],
     ];
     public function load(ObjectManager $manager): void
     {
@@ -35,6 +32,7 @@ class ThemeFixtures extends Fixture implements DependentFixtureInterface
             $theme = new Themes();
             $theme->setUser($this->getReference(UserFixtures::USER_REFERENCE));
             $theme->setName($themeInfos[1]);
+            $this->addReference(self::THEMES_REFERENCE, $theme);
             $theme->setDescription($themeInfos[2]);
 
             $manager->persist($theme);
