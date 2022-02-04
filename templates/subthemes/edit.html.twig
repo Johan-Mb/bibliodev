@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Subthemes{% endblock %}
+
+{% block body %}
+
+    <div class="contenant">
+        <div class="contenu">
+
+			{% include "headpage.html.twig" %}
+
+            <div class="big-buttons">
+                <a href="{{ path('themes_index')}}">
+                    <div class="admin-btn">Thèmes</div>
+                </a>
+                <a href="{{ path('subthemes_index')}}">
+                    <div class="admin-btn">Sous-thèmes</div>
+                </a>
+                <a href="{{ path('ressources_index')}}">
+                    <div class="admin-btn">Ressources</div>
+                </a>
+            </div>
+
+    {{ include('subthemes/_form.html.twig', {'button_label': 'Update'}) }}
+
+    {{ include('subthemes/_delete_form.html.twig') }}
+
+    <a href="{{ path('subthemes_index') }}"><i class="far fa-arrow-alt-circle-left"></i></a>
+
+        </div>
+    </div>
+{% endblock %}

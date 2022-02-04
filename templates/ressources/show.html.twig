@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ressources{% endblock %}
+
+{% block body %}
+
+    <div class="contenant">
+        <div class="contenu">
+
+			{% include "headpage.html.twig" %}
+
+            <div class="big-buttons">
+                    <div></div>
+                    <div class="admin-btn-static">{{ ressource.name }}</div>
+                    <div></div>
+            </div>
+
+                <div class="col-theme">
+                    <div class="row">
+                        <div class="col add-theme">
+                            <div class="label-form">Nom</div>
+                            <div class="input-form">{{ ressource.name }}</div>
+                        </div>
+                        <div class="col">
+                            <div class="label-form">Level</div>
+                            <div class="input-form">{{ ressource.level }}</div>
+                        </div>
+                        <div class="col">
+                            <div class="label-form">Type</div>
+                            <div class="input-form">{{ ressource.type }}</div>
+                        </div>
+                        <div class="col">
+                            <div class="label-form">URL</div>
+                            <div class="input-form"><a href="{{ ressource.url }}" target="_blank">{{ ressource.url }} </a></div>
+                        </div>
+
+                            <a class="save-btn" href="{{ path('ressources_edit', {'id': ressource.id}) }}">Modifier</a>
+
+                            {{ include('ressources/_delete_form.html.twig') }}
+
+                            <a href="{{ path('ressources_index') }}"><i class="far fa-arrow-alt-circle-left"></i></a>
+
+                    </div>
+                </div>
+        </div>
+    </div>
+{% endblock %}

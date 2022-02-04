@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma bibliodev • Sous-thèmes{% endblock %}
+
+{% block body %}
+
+<div class="contenant">
+    <div class="contenu">
+
+			{% include "headpage.html.twig" %}
+
+            <div class="big-buttons">
+                <a href="{{ path('themes_index')}}">
+                    <div class="admin-btn">Thèmes</div>
+                </a>
+                <a href="{{ path('subthemes_index')}}">
+                    <div class="admin-btn-white">Sous-thèmes</div>
+                </a>
+                <a href="{{ path('ressources_index')}}">
+                    <div class="admin-btn">Ressources</div>
+                </a>
+            </div>
+
+            <div class="grid-theme">
+
+                <div class="col-theme">
+                    <div class="case-type-ressource">
+                        <span> Tous les sous-thèmes </span>
+                    </div>
+                    {% for subtheme in subthemes %}
+                        <div class="row-theme">
+                                {# <a href="{{ path('showThemeSubtheme', {'name': theme.name, 'subtheme_name': subtheme.name }) }}"> #}
+                                    <div class="case-theme">
+                                        {{ subtheme.name }}
+                                    </div>
+                                {# </a> #}
+
+                                <a href="{{ path('subthemes_show', {'id': subtheme.id}) }}">
+                                    <div class="case-icon">
+                                        <i class="far fa-eye"></i>
+                                    </div>
+                                </a>
+                                <a href="{{ path('subthemes_edit', {'id': subtheme.id}) }}">
+                                    <div class="case-icon">
+                                        <i class="far fa-edit"></i>
+                                    </div>
+                                </a>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="col-theme">
+                        <div class="row-theme">
+                        </div>
+                </div>
+            </div>
+
+            <a class="save-btn" href="{{ path('subthemes_new') }}">Créer un sous-thème</a>
+
+    </div>
+</div>
+{% endblock %}

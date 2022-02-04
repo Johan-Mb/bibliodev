@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Subthemes{% endblock %}
+
+{% block body %}
+
+    <div class="contenant">
+        <div class="contenu">
+
+			{% include "headpage.html.twig" %}
+
+            <div class="big-buttons">
+                    <div></div>
+                    <div class="admin-btn-static">Ajouter un sous-thème</div>
+                    <div></div>
+            </div>
+
+            {{ include('subthemes/_form.html.twig') }}
+
+            <a href="{{ path('subthemes_index') }}"><i class="far fa-arrow-alt-circle-left"></i></a>
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{{ form_start(form) }}
+
+    <div class="row">
+
+        <div class="col add-theme">
+            {{ form_label(form.theme, 'Choisir un thème', {'label_attr': {'class': 'label-form'}}) }}
+            {{ form_row(form.theme, {'attr': {'class': 'select-form'}}) }}
+        </div>
+
+        <div class="col add-subtheme">
+            {{ form_label(form.subtheme, 'Choisir un sous-thème', {'label_attr': {'class': 'label-form'}}) }}
+            {{ form_row(form.subtheme, {'attr': {'class': 'select-form'}}) }}
+        </div>
+
+        <div class="col">
+            {{ form_label(form.name, 'Nom de la ressource', {'label_attr': {'class': 'label-form'}}) }}
+            {{ form_row(form.name, {'attr': {'class': 'input-form'}}) }}
+        </div>
+
+        <div class="col">
+            {{ form_label(form.level, 'Level de la ressource', {'label_attr': {'class': 'label-form'}}) }}
+            {{ form_row(form.level, {'attr': {'class': 'input-form'}}) }}
+        </div>
+
+        <div class="col">
+                {{ form_label(form.type, 'Type de ressource', {'label_attr': {'class': 'label-form'}}) }}
+                {{ form_row(form.type, {'attr': {'class': 'select-form'}}) }}
+        </div>
+
+        <div class="col">
+                {{ form_label(form.url, 'URL DE LA RESSOURCE', {'label_attr': {'class': 'label-form'}}) }}
+                {{ form_row(form.url, {'attr': {'class': 'input-form'}}) }}
+        </div>
+
+        {# <script>
+            const theme = document.querySelector('.add-theme');
+            const subtheme = document.querySelector('.add-subtheme');
+
+            theme.addEventListener('change', (e) => {
+                subtheme.style.display = 'block';
+            });
+        </script> #}
+
+    <button class="save-btn">{{ button_label|default('Ajouter à ma Bibliodev') }}</button>
+{{ form_end(form) }}

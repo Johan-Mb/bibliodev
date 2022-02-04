@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Subthemes{% endblock %}
+
+{% block body %}
+
+    <div class="contenant">
+        <div class="contenu">
+
+			{% include "headpage.html.twig" %}
+
+            <div class="big-buttons">
+                    <div></div>
+                    <div class="admin-btn-static">{{ subtheme.name }}</div>
+                    <div></div>
+            </div>
+
+                <div class="col-theme">
+                    <div class="row">
+                        <div class="col add-theme">
+                            <div class="label-form">Nom</div>
+                            <div class="input-form">{{ subtheme.name }}</div>
+                        </div>
+                        <div class="col">
+                            <div class="label-form">Description</div>
+                            <div class="input-form">{{ subtheme.description }}</div>
+                        </div>
+
+                            <a class="save-btn" href="{{ path('subthemes_edit', {'id': subtheme.id}) }}">Modifier</a>
+
+                            {{ include('subthemes/_delete_form.html.twig') }}
+
+                            <a href="{{ path('subthemes_index') }}"><i class="far fa-arrow-alt-circle-left"></i></a>
+
+                    </div>
+                </div>
+        </div>
+    </div>
+{% endblock %}

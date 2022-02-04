@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Ressources{% endblock %}
+
+{% block body %}
+ <div class="contenant">
+        <div class="contenu">
+
+			{% include "headpage.html.twig" %}
+
+            <div class="big-buttons">
+                <a href="{{ path('themes_index')}}">
+                    <div class="admin-btn">Thèmes</div>
+                </a>
+                <a href="{{ path('subthemes_index')}}">
+                    <div class="admin-btn">Sous-thèmes</div>
+                </a>
+                <a href="{{ path('ressources_index')}}">
+                    <div class="admin-btn">Ressources</div>
+                </a>
+            </div>
+
+    {{ include('ressources/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    {{ include('ressources/_delete_form.html.twig') }}
+
+    <a href="{{ path('ressources_index') }}">Retour</a>
+
+    </div>
+</div>
+{% endblock %}

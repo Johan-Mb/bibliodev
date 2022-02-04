@@ -1,0 +1,411 @@
+body {
+    margin: 0%;
+    background-color: #F76C6B;
+    font-family: 'Rubik', sans-serif;
+    color: #696969;
+    font-size: 14px;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size:59px;
+    color: #F76C6B;
+}
+
+h2 {
+    font-size:35px;
+    color: #F76C6B;
+    text-transform: uppercase;
+}
+
+h4 {
+    color: #F76C6B;
+}
+
+.admin-btn-white {
+    background-color: transparent;
+    padding: 7px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 29px;
+    width: 30vh;
+    border: 8px solid #F76C6B;
+    color: #F76C6B;}
+
+.admin-btn {
+    background-color: #F76C6B;
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 29px;
+    width: 30vh;
+    color: #F9F9F9;
+}
+
+.admin-btn:hover {
+    background-color: transparent;
+    padding: 7px;
+    border: 8px solid #F76C6B;
+    color: #F76C6B;
+}
+
+.admin-btn-static {
+    background-color: #F76C6B;
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 29px;
+    width: 30vh;
+    color: #F9F9F9;
+}
+
+.admin-btn-ressource {
+    background-color: #F76C6B;
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 29px;
+    width: 98%;
+    color: #F9F9F9;
+}
+
+.save-btn {
+    background-color: #F76C6B;
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    color: #F9F9F9;
+    border: none;
+    width: 33vh;
+    margin-top: 3vh;
+}
+
+.save-btn:hover {
+    background-color: transparent;
+    padding: 9px;
+    border: 6px solid #F76C6B;
+    color: #F76C6B;
+}
+
+.ressource-name {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.ressource-type {
+    font-style: italic;
+    font-weight: normal;
+    font-size: 10px;
+}
+
+.div-retour {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.search-div {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    height: 3vh;
+    margin-bottom: 3vh;
+}
+
+.input-search {
+    width: 200px;
+    border-radius: 0px;
+    border: 1px solid #696969;
+}
+
+.search-btn {
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    color: #F76C6B;
+}
+
+/* CSS de la homepage */
+
+.presentation {
+    margin-top: 5vh;
+}
+
+.presentation p {
+    font-size:17px;
+    line-height: 1.5;
+}
+
+
+/* CSS des colonnes de données */
+
+.grid-theme {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 3vh;
+    overflow-y: scroll;
+}
+
+.col-theme {
+    display:flex;
+    flex-direction: column;
+    margin-top: 5vh;
+}
+
+.row-theme{
+    display:flex;
+    flex-direction: row;
+    gap: 1vh;
+    width: 33vh;
+    margin-bottom: 1vh;
+}
+
+.row-theme a {
+    text-decoration: none;
+}
+
+.case-type-ressource {
+    padding: 10px;
+    background-color: #F2B1B1;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    width: 30.9vh;
+    color: #F9F9F9;
+    margin-bottom: 1vh;
+}
+
+.case-theme {
+    padding: 10px;
+    background-color: #F76C6B;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    width: 19vh;
+    color: #F9F9F9;
+}
+
+.case-theme-pink {
+    padding: 10px;
+    background-color: #F2B1B1;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    width: 19vh;
+    color: #F9F9F9;
+}
+
+.case-icon {
+    padding: 10px;
+    background-color: #F76C6B;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    width: 3vh;
+    color: #F9F9F9;
+}
+
+.case-icon:hover, .case-theme:hover {
+    padding: 7px;
+    background-color: transparent;
+    border: 3px solid #F76C6B;
+    color: #F76C6B;
+}
+
+.case-icon-pink {
+    padding: 10px;
+    background-color: #F2B1B1;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    width: 3vh;
+    color: #F9F9F9;
+}
+
+.case-theme-pink:hover, .case-icon-pink:hover {
+    padding: 7px;
+    background-color: transparent;
+    border: 3px solid #F2B1B1;
+    color: #F2B1B1;
+}
+
+.big-buttons a {
+    text-decoration: none;
+}
+
+/* CSS de la sidebar */
+
+.sidebar {
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: 20px 0;
+    padding-left: 1.8%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: absolute;
+    z-index: 1010;
+}
+
+#logo {
+    height:150px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    background-color: #F9F9F9;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #F76C6B;
+}
+
+nav a {
+    text-decoration: none;
+
+}
+
+nav li:hover {
+    background-color: transparent;
+    padding: 7px;
+    border: 3px solid #F9F9F9;
+    color: #F9F9F9;
+}
+
+/* CSS du contenant et contenu */
+
+.contenant {
+    margin-left: 220px;
+    background-color: #F9F9F9;
+    height: 100vh;
+    overflow: hidden;
+}
+
+  .contenu {
+    padding: 20px 50px 0 50px;
+  }
+
+/* CSS du headpage  */
+
+.header-contenu {
+    display: flex;
+    flex-direction: row;
+}
+
+.header-titre-contenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+}
+
+.header-contenu-name-date{
+    text-align: right;
+}
+
+.header-contenu-username {
+    font-weight: bold;
+    font-size: 29px;
+}
+
+.header-contenu-date {
+    margin-top:-20px;
+    font-size: 16px;
+}
+
+/* CSS des 3 big buttons  */
+
+.big-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* CSS des formulaires  */
+
+.row {
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    margin-top: 5vh;
+}
+
+.col {
+    display: flex;
+    flex-direction:row;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.label-form {
+    padding: 10px;
+    background-color: #F76C6B;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    width: 300px;
+    color: #F9F9F9;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input-form {
+    padding: 10px;
+    border: 3px solid #696969;
+    text-align: center;
+    min-width: 300px;
+    color: #696969;
+}
+
+.input-form a {
+    color: #696969;
+}
+
+.select-form {
+    padding: 10px;
+    border: 3px solid #696969;
+    text-align: center;
+    min-width: 325px;
+    color: #696969;
+}
+
+/* CSS des icons */
+
+.fa-arrow-alt-circle-left {
+    margin-top:4vh;
+    font-size:40px;
+    color: #F76C6B;
+}
+
+
+.fa-arrow-alt-circle-left:hover{
+    color: #F9F9F9;
+    background-color:#F76C6B;
+    border-radius: 50px;
+}

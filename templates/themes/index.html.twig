@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma Bibliodev • Thèmes{% endblock %}
+
+{% block body %}
+
+ <div class="contenant">
+        <div class="contenu">
+
+			{% include "headpage.html.twig" %}
+
+              <div class="big-buttons">
+                <a href="{{ path('themes_index')}}">
+                    <div class="admin-btn-white">Thèmes</div>
+                </a>
+                <a href="{{ path('subthemes_index')}}">
+                    <div class="admin-btn">Sous-thèmes</div>
+                </a>
+                <a href="{{ path('ressources_index')}}">
+                    <div class="admin-btn">Ressources</div>
+                </a>
+            </div>
+            <div class="grid-theme">
+                <div class="col-theme">
+                    <div class="case-type-ressource">
+                        <span> Tous les thèmes </span>
+                    </div>
+                    {% for theme in themes %}
+                        <div class="row-theme">
+                                <a href="{{ path('show_currentTheme', {'currentTheme': theme.name|lower }) }}">
+                                    <div class="case-theme">{{ theme.name }}</div>
+                                </a>
+                                <a href="{{ path('themes_show', {'id': theme.id}) }}">
+                                    <div class="case-icon"><i class="far fa-eye"></i></div>
+                                </a>
+                                <a href="{{ path('themes_edit', {'id': theme.id}) }}">
+                                    <div class="case-icon"><i class="far fa-edit"></i></div>
+                                </a>
+                        </div>
+
+                    {% else %}
+                            <div>no records found</div>
+                    {% endfor %}
+                </div>
+            </div>
+                <a class="save-btn" href="{{ path('themes_new') }}">Créer un thème</a>
+        </div>
+    </div>
+{% endblock %}

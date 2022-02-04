@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Themes{% endblock %}
+
+{% block body %}
+
+    <div class="contenant">
+        <div class="contenu">
+
+			{% include "headpage.html.twig" %}
+
+            <div class="big-buttons">
+                    <div></div>
+                    <div class="admin-btn-static">Ajouter un thème</div>
+                    <div></div>
+            </div>
+
+            {{ include('themes/_form.html.twig') }}
+
+            <a href="{{ path('themes_index') }}"><i class="far fa-arrow-alt-circle-left"></i></a>
+        </div>
+    </div>
+{% endblock %}

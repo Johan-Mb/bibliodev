@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+    <div class="contenant">
+        <div class="contenu">
+
+			{% include "headpage.html.twig" %}
+
+            <div class="big-buttons">
+                    <div></div>
+                    <div class="admin-btn-static">{{ user.username }}</div>
+                    <div></div>
+            </div>
+
+                <div class="col-theme">
+                    <div class="row">
+                        <div class="col add-theme">
+                            <div class="label-form">Nom</div>
+                            <div class="input-form">{{ user.username }}</div>
+                        </div>
+
+                        <div class="col">
+                            <div class="label-form">E-mail</div>
+                            <div class="input-form">{{ user.email }}</div>
+                        </div>
+
+                        <div class="col">
+                            <div class="label-form">Mot de passe</div>
+                            <div class="input-form">{{ user.password }}</div>
+                        </div>
+
+                            <a class="save-btn" href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
+
+                            <a href="{{ path('user_index') }}"><i class="far fa-arrow-alt-circle-left"></i></a>
+
+                    </div>
+                </div>
+        </div>
+    </div>
+{% endblock %}

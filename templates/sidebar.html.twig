@@ -1,0 +1,29 @@
+{% block header %}
+
+    <div class="sidebar">
+
+        <div>
+            <a href="{{ path('homepage') }}"><img id="logo" src="/assets/img/WCS-W.png"></a>
+        </div>
+        {% if app.user is not null %}
+            <nav>
+                <ul>
+                    <a href="{{ path('homepage')}}"><li>Home</li></a>
+                    <a href="{{ path('themes_index')}}"><li>Thèmes</li></a>
+                    <a href="{{ path('subthemes_index')}}"><li>Sous-thèmes</li></a>
+                    <a href="{{ path('ressources_index')}}"><li>Ressources</li></a>
+                    <a href="{{ path('ressources_new')}}"><li>Ajouter</li></a>
+                {% if app.user %}
+                    <a href="{{ path('user_show', {id: app.user.id}) }}"><li>Profil</li></a>
+                {% endif %}
+                    <a href="{{ path('app_logout') }}"><li>Déconnexion</li></a>
+                </ul>
+            </nav>
+
+        {% else %}
+
+        {% endif %}
+
+    </div>
+
+{% endblock %}
