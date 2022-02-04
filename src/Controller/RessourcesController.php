@@ -17,8 +17,10 @@ use App\Form\SearchRessourcesType;
 class RessourcesController extends AbstractController
 {
     #[Route('/', name: 'ressources_index', methods: ['POST','GET'])]
-    public function index(Request $request, RessourcesRepository $ressourcesRepository): Response
-    {
+    public function index(
+        Request $request,
+        RessourcesRepository $ressourcesRepository
+    ): Response {
         $form = $this->createForm(SearchRessourcesType::class);
         $form->handleRequest($request);
 
@@ -32,6 +34,10 @@ class RessourcesController extends AbstractController
         return $this->render('ressources/index.html.twig', [
             'ressources' => $ressource,
             'form' => $form->createView(),
+            'ressourcesVideo' => $ressourcesRepository->findBy(array('type' => 'Vidéo'),),
+            'ressourcesCours' => $ressourcesRepository->findBy(array('type' => 'Cours'),),
+            'ressourcesLiens' => $ressourcesRepository->findBy(array('type' => 'Lien utile'),)
+
         ]);
     }
 

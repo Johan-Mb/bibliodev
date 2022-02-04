@@ -12,8 +12,15 @@ class SearchRessourcesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('search', SearchType::class)
-        ;
+            ->add('search',
+            SearchType::class,
+            array(
+                'attr' => array(
+                    'placeholder' => 'Rechercher une ressource',
+                ),
+                'label' => ' ',
+            )
+        );
     }
 
     public function configureOptions(OptionsResolver $resolver): void
