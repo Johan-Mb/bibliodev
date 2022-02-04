@@ -7,17 +7,23 @@
 
 			{% include "headpage.html.twig" %}
 
-            <div class="big-buttons">
-                <a href="{{ path('themes_index')}}">
-                    <div class="admin-btn">Thèmes</div>
-                </a>
-                <a href="{{ path('subthemes_index')}}">
-                    <div class="admin-btn">Sous-thèmes</div>
-                </a>
-                <a href="{{ path('ressources_index')}}">
-                    <div class="admin-btn">Ressources</div>
-                </a>
+            <div class="presentation">
+                <h2>Hello, bienvenue sur ta Bibliodev</h2>
+                <p>Ceci est une petite application permettant de <strong>trier, ranger et retrouver</strong> toutes les ressources
+                nécessaires à ton apprentissage du développement web. L'outil idéal à associer avec la plateforme Odyssey (de la Wild Code School) ou Notion. Il a été conçu en PHP / Symfony.</p>
+
+                <p>La Bibliodev fonctionne comme un meuble à vinyles. <strong>Un thème</strong> contient de <strong>nombreux sous-thèmes</strong> (comme une case contient plein de disques et un disque, plein de morceaux). Et chaque sous-thème contient <strong>d'innombrables ressources</strong>.
+                Chaque ressource est catégorisée <strong>par type</strong> : cours, vidéo ou lien utile. Un niveau de difficulté est associé à chaque ressource pour un futur tri par level.</p>
+
+                <p>Maintenant tu sais tout. <br/> <strong>Fais-en bon usage !</strong></p>
+                <div class="big-buttons">
+                    <a class="save-btn" href="{{ path('themes_new') }}">Créer un thème</a>
+                    <a class="save-btn" href="{{ path('subthemes_new') }}">Créer un sous-thème</a>
+                    <a class="save-btn" href="{{ path('ressources_new') }}">Ajouter une ressource</a>
+                </div>
             </div>
+
+
 
         </div>
     </div>

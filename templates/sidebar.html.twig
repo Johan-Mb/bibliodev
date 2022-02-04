@@ -5,7 +5,7 @@
         <div>
             <a href="{{ path('homepage') }}"><img id="logo" src="/assets/img/WCS-W.png"></a>
         </div>
-
+        {% if app.user is not null %}
             <nav>
                 <ul>
                     <a href="{{ path('homepage')}}"><li>Home</li></a>
@@ -19,6 +19,11 @@
                     <a href="{{ path('app_logout') }}"><li>Déconnexion</li></a>
                 </ul>
             </nav>
+
+        {% else %}
+
+        {% endif %}
+
     </div>
 
 {% endblock %}

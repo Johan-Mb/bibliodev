@@ -111,12 +111,12 @@ class ThemesController extends AbstractController
         RessourcesRepository $ressourcesRepository
     ): Response {
 
-                return $this->render('subthemes/theme_subtheme.html.twig', [
+        return $this->render('subthemes/theme_subtheme.html.twig', [
                     'currentTheme' => $currentTheme,
                     'currentSubtheme' => $currentSubtheme,
-                    'ressourcesVideo' => $ressourcesRepository->findBy(array('type' => 'Vidéo')),
-                    'ressourcesCours' => $ressourcesRepository->findBy(array('type' => 'Cours')),
-                    'ressourcesLiens' => $ressourcesRepository->findBy(array('type' => 'Lien utile')),
+                    'ressourcesVideo' => $ressourcesRepository->findBy(array('type' => 'Vidéo', 'subtheme' => $currentSubtheme->getId()),),
+                    'ressourcesCours' => $ressourcesRepository->findBy(array('type' => 'Cours', 'subtheme' => $currentSubtheme->getId()),),
+                    'ressourcesLiens' => $ressourcesRepository->findBy(array('type' => 'Lien utile', 'subtheme' => $currentSubtheme->getId()),)
 
                 ]);
     }

@@ -9,13 +9,9 @@
 
 			{% include "headpage.html.twig" %}
 
-            <div class="big-buttons">
-                    <div class="admin-btn">{{ currentTheme.name }}</div>
-                    <div class="admin-btn"> {{ currentSubtheme.name }}</div>
-                <a href="{{ path('ressources_index')}}">
-                    <div class="admin-btn-white">Ressources</div>
-                </a>
-            </div>
+                    <div class="admin-btn-ressource">
+                        Ressources : {{ currentTheme.name }} / {{ currentSubtheme.name }}
+                    </div>
 
     {# Afficher les ressources du sous-thèmes par types #}
 
@@ -24,7 +20,7 @@
                     <div class="case-type-ressource">
                         <span> Vidéos </span>
                     </div>
-                {% if currentSubtheme is empty %}
+                {% if ressourcesVideo is empty %}
 
                         <p>Pas de vidéos dans la base de donnée.</p>
 
@@ -56,7 +52,7 @@
                     <div class="case-type-ressource">
                         <span> Cours </span>
                     </div>
-                {% if currentSubtheme is empty %}
+                {% if ressourcesCours is empty %}
 
                         <p>Pas de cours dans la base de donnée.</p>
 
@@ -88,7 +84,7 @@
                     <div class="case-type-ressource">
                         <span> Liens utiles </span>
                     </div>
-                {% if currentSubtheme is empty %}
+                {% if ressourcesLiens is empty %}
 
                         <p>Pas de liens dans la base de donnée.</p>
 
@@ -115,6 +111,10 @@
 
                 {% endif %}
                 </div>
+
+            </div>
+            <div class="div-retour">
+                <a href="{{ path('themes_index') }}"><i class="far fa-arrow-alt-circle-left"></i></a>
             </div>
     </div>
 </div>

@@ -9,50 +9,119 @@
 
 			{% include "headpage.html.twig" %}
 
+            <div class="search-div">
+                <a class="search-btn" href="{{ path('ressources_new') }}">Ajouter une ressource</a>
+
                 {# {{ form_start(form) }}
-                {{ form_widget(form) }}
-                <button>Search</button>
+                {{ form_widget(form.search, {'attr': {'class': 'input-search'}}) }}
+                <button><i class="fas fa-search"></i></button>
                 {{ form_end(form) }}
 
-                <a href="{{ path('ressources_index')}}">Voir tout</a> #}
+                <a class="search-btn" href="{{ path('ressources_index')}}">Voir tout</a> #}
 
-            <div class="big-buttons">
-                <a href="{{ path('themes_index')}}">
-                    <div class="admin-btn">Thèmes</div>
-                </a>
-                <a href="{{ path('subthemes_index')}}">
-                    <div class="admin-btn">Sous-thèmes</div>
-                </a>
-                <a href="{{ path('ressources_index')}}">
-                    <div class="admin-btn-white">Ressources</div>
-                </a>
             </div>
+
+                <div class="admin-btn-ressource">
+                    Toutes les ressources
+                </div>
 
             <div class="grid-theme">
                 <div class="col-theme">
-                {% for ressource in ressources %}
+                    <div class="case-type-ressource">
+                        <span> Vidéos </span>
+                    </div>
+                {% if ressourcesVideo is empty %}
+
+                        <p>Pas de vidéos dans la base de donnée.</p>
+
+                {% else %}
+                    {% for ressource in ressourcesVideo %}
                         <div class="row-theme">
-                            <a href="{{ ressource.url }}" target="_blank">
-                                <div class="case-theme">
+                                <a href="{{ ressource.url }}" target="_blank">
+                                    <div class="case-theme">
                                     <span class="ressource-name"> {{ ressource.name }} </span> <br/>
-                                    <span class="ressource-type"> {{ ressource.type }} / Level {{ ressource.level }}</span>
-                                </div>
-                            </a>
+                                    <span class="ressource-type"> Level {{ ressource.level }}</span>                                    </div>
+                                </a>
                                 <a href="{{ path('ressources_show', {'id': ressource.id}) }}">
-                                    <div class="case-icon"><i class="far fa-eye"></i></div>
+                                    <div class="case-icon">
+                                        <i class="far fa-eye"></i>
+                                    </div>
                                 </a>
                                 <a href="{{ path('ressources_edit', {'id': ressource.id}) }}">
-                                    <div class="case-icon"><i class="far fa-edit"></i></div>
+                                    <div class="case-icon">
+                                        <i class="far fa-edit"></i>
+                                    </div>
                                 </a>
                         </div>
-                {% else %}
-                    <div>no records found</div>
-                {% endfor %}
+                    {% endfor %}
+
+                {% endif %}
                 </div>
+
+                 <div class="col-theme">
+                    <div class="case-type-ressource">
+                        <span> Cours </span>
+                    </div>
+                {% if ressourcesCours is empty %}
+
+                        <p>Pas de cours dans la base de donnée.</p>
+
+                    {% else %}
+
+                     {% for ressource in ressourcesCours %}
+                        <div class="row-theme">
+                                <a href="{{ ressource.url }}" target="_blank">
+                                    <div class="case-theme">
+                                    <span class="ressource-name"> {{ ressource.name }} </span> <br/>
+                                    <span class="ressource-type"> Level {{ ressource.level }}</span>                                           </div>
+                                </a>
+                                <a href="{{ path('ressources_show', {'id': ressource.id}) }}">
+                                    <div class="case-icon">
+                                        <i class="far fa-eye"></i>
+                                    </div>
+                                </a>
+                                <a href="{{ path('ressources_edit', {'id': ressource.id}) }}">
+                                    <div class="case-icon">
+                                        <i class="far fa-edit"></i>
+                                    </div>
+                                </a>
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
 
-            <a class="save-btn" href="{{ path('ressources_new') }}">Ajouter une ressource</a>
+                <div class="col-theme">
+                    <div class="case-type-ressource">
+                        <span> Liens utiles </span>
+                    </div>
+                {% if ressourcesLiens is empty %}
 
+                        <p>Pas de liens dans la base de donnée.</p>
+
+                {% else %}
+                    {% for ressource in ressourcesLiens %}
+                        <div class="row-theme">
+                                <a href="{{ ressource.url }}" target="_blank">
+                                    <div class="case-theme">
+                                    <span class="ressource-name"> {{ ressource.name }} </span> <br/>
+                                    <span class="ressource-type"> Level {{ ressource.level }}</span>                                           </div>
+                                </a>
+                                <a href="{{ path('ressources_show', {'id': ressource.id}) }}">
+                                    <div class="case-icon">
+                                        <i class="far fa-eye"></i>
+                                    </div>
+                                </a>
+                                <a href="{{ path('ressources_edit', {'id': ressource.id}) }}">
+                                    <div class="case-icon">
+                                        <i class="far fa-edit"></i>
+                                    </div>
+                                </a>
+                        </div>
+                    {% endfor %}
+
+                {% endif %}
+                </div>
+        </div>
     </div>
 </div>
 {% endblock %}
