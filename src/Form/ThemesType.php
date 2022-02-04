@@ -16,13 +16,13 @@ class ThemesType extends AbstractType
             ->add('name', TextType::class,
             array(
             'attr' => array(
-                'placeholder' => 'Nommer le sous-thème',
+                'placeholder' => 'Nommer le thème',
             ),
             'label' => ' '))
             ->add('description', TextType::class,
             array(
             'attr' => array(
-                'placeholder' => 'Nommer le sous-thème',
+                'placeholder' => 'Nommer le thème',
             ),
             'label' => ' '))
             // ->add('user')
